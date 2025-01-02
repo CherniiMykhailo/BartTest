@@ -1,6 +1,6 @@
 ﻿namespace BartTest.Dto
 {
-    public class ReturnAccountDto
+    public class ReturnNewAccountDto
     {
         public int Id { get; set; }
 
