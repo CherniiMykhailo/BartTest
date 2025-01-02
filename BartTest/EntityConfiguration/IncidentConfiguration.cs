@@ -12,6 +12,8 @@ namespace BartTest.EntityConfiguration
 
             builder.HasKey(i => i.Name); //primary key
             builder.Property(i => i.Name).HasDefaultValue("NEWID()"); // autogenerate by DB
+
+            builder.Property(incident => incident.Description).HasMaxLength(100);
         }
     }
 }
