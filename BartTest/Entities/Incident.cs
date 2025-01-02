@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using BartTest.Entities.Interfaces;
+using System.Collections.Generic;
 
 namespace BartTest.Entities
 {
-    public class Incident
+    public class Incident : IEntity
     {
         public string? Name { get; set; }
         public string? Description { get; set; }

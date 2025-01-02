@@ -1,6 +1,8 @@
-﻿namespace BartTest.Entities
+﻿using BartTest.Entities.Interfaces;
+
+namespace BartTest.Entities
 {
-    public class Contact
+    public class Contact : IEntity
     {
         public int Id { get; set; }
         public string? FirstName {  get; set; }

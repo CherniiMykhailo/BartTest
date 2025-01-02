@@ -1,13 +1,22 @@
-using BartTest.Context;
+﻿using BartTest.Context;
+using BartTest.Repository.Implementation;
+using BartTest.Repository.Infrastructure;
+using BartTest.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<BartDbContext>(options => 
+builder.Services.AddDbContext<BartDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+builder.Services.AddScoped<IIncidentService, IncidentService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

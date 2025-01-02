@@ -10,6 +10,7 @@ namespace BartTest.Repository.Implementation
     public class ContactService : IContactService
     {
         private readonly IRepository<ContactEntity> contactRepository;
+        private readonly IAccountService accountService;
         private readonly IMapper mapper;
 
         public ContactService(

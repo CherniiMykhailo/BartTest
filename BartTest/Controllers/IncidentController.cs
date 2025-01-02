@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BartTest.Dto;
+using BartTest.Repository.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BartTest.Controllers
 {
@@ -6,10 +8,19 @@ namespace BartTest.Controllers
     [Route("[controller]")]
     public class IncidentController : ControllerBase
     {
-        [HttpGet]
-        public string Get(string userName)
+        private readonly IIncidentService incidentService;
+
+        public IncidentController(IIncidentService incidentService)
         {
-            return userName;
+            this.incidentService = incidentService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewIncident([FromBody] AddNewIncidentDto addNewIncidentDto)
+        {
+            var addedIncident = await incidentService.AddNewIncidentAsync(addNewIncidentDto);
+
+            return addedIncident == null ? NotFound() : Ok(addedIncident);
         }
 
 
