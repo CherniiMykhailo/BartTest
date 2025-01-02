@@ -19,7 +19,8 @@ namespace BartTest.EntityConfiguration
             builder.Property(contact => contact.LastName).HasMaxLength(100);
 
             builder.Property(contact => contact.Email).HasMaxLength(100);
-            builder.HasIndex(account => account.Email).IsUnique();
+            builder.HasIndex(contact => contact.Email).IsUnique();
+
 
             builder.HasOne<Account>(c => c.Account)
                 .WithMany(c => c.Contacts) // 1:M
