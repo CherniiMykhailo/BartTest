@@ -2,8 +2,7 @@
 
 namespace BartTest.Entities
 {
-    public interface IEntity { }
-    public class Incident : IEntity
+    public class Incident
     {
         public string? Name { get; set; }
         public string? Description { get; set; }
