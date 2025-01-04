@@ -1,4 +1,5 @@
-﻿using BartTest.Entities;
+﻿using BartTest.Dto;
+using BartTest.Entities;
 using BartTest.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,10 @@ namespace BartTest.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddNewContact([FromBody] Contact newContact)
+        public async Task<IActionResult> AddNewContact([FromBody] Contact contact)
         {
-            var addedContact = await contactService.AddNewContactAsync(newContact);
+
+            var addedContact = await contactService.AddNewContactAsync(contact);
 
             return addedContact == null ? StatusCode(409, $"Contact already exists.") : Ok(addedContact);
         }

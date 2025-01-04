@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BartTest.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("Incident")]
     public class IncidentController : ControllerBase
     {
         private readonly IIncidentService incidentService;

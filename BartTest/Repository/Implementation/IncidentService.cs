@@ -30,13 +30,13 @@ namespace BartTest.Repository.Implementation
             var newAccount = mapper.Map<AddNewIncidentDto, Account>(addNewIncidentDto);
             var newContact = mapper.Map<AddNewIncidentDto, Contact>(addNewIncidentDto);
 
-            var account = await accountService.CheckIfExistByNameAsync(newAccount.Name!);
+            var account = await accountService.CheckIfExistByNameAsync(newAccount.Name);
             if (account == null)
             {
-                return null!;
+                return null;
             }
 
-            await accountService.LinkNewContactAsync(account.Name!, newContact); //add new Contact to Account
+            await accountService.LinkNewContactAsync(account.Name, newContact); //add new Contact to Account
 
             newIncident.Accounts = new List<Account> { account }; //link relation between newIncident and Account
             

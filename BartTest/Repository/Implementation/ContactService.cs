@@ -28,7 +28,7 @@ namespace BartTest.Repository.Implementation
 
             if (contact != null)
             {
-                return null!;
+                return null;
             }
 
             var addedContact = await contactRepository.AddAsync(newContact);
@@ -47,7 +47,7 @@ namespace BartTest.Repository.Implementation
 
             if (contact == null)
             {
-                return null!;
+                return null;
             }
 
             contact.FirstName = updatedContact.FirstName;

@@ -1,5 +1,7 @@
 ﻿using BartTest.Entities.Interfaces;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace BartTest.Entities
 {
@@ -8,6 +10,7 @@ namespace BartTest.Entities
         public string? Name { get; set; }
         public string? Description { get; set; }
 
+        [JsonIgnore]
         public ICollection<Account> Accounts { get; set; } = new List<Account>(); // 1:M
     }
 }

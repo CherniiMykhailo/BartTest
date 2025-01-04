@@ -32,10 +32,10 @@ namespace BartTest.Repository.Implementation
             var account = await accountRepository.Query().Where(x => x.Name == newAccount.Name).FirstOrDefaultAsync(); //check for avaible newAccount.Name
             if (account != null)
             {
-                return null!;
+                return null;
             }
 
-            var contact = await contactService.CheckIfExistByEmailAsync(newContact.Email!); // search contact with this email
+            var contact = await contactService.CheckIfExistByEmailAsync(newContact.Email); // search contact with this email
 
             if (contact == null)
             {
@@ -62,10 +62,10 @@ namespace BartTest.Repository.Implementation
             var account = await accountRepository.Query().Where(x => x.Name == name).FirstOrDefaultAsync();
             if (account == null)
             {
-                return null!;
+                return null;
             }
 
-            var contact = await contactService.CheckIfExistByEmailAsync(newContact.Email!);
+            var contact = await contactService.CheckIfExistByEmailAsync(newContact.Email);
 
             if (contact == null)
             {
@@ -78,7 +78,7 @@ namespace BartTest.Repository.Implementation
 
             if (contact.AccountId != null)
             {
-                return null!;
+                return null;
             }
 
             account.Contacts.Add(contact);
