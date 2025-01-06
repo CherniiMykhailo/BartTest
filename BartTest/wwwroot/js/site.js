@@ -1,8 +1,6 @@
-﻿// Додаємо слухач події на форму
-document.getElementById('incidentForm').addEventListener('submit', async function (e) {
-    e.preventDefault(); // Запобігаємо перезавантаженню сторінки
+﻿document.getElementById('incidentForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-    // Збираємо дані з форми
     const formData = {
         accountName: document.getElementById('accountName').value.trim(),
         contactFirstName: document.getElementById('contactFirstName').value.trim(),
@@ -11,7 +9,6 @@ document.getElementById('incidentForm').addEventListener('submit', async functio
         incidentDescription: document.getElementById('incidentDescription').value.trim()
     };
 
-    // Валідація полів
     if (!formData.accountName || !formData.contactFirstName || !formData.contactLastName || !formData.contactEmail || !formData.incidentDescription) {
         document.getElementById('responseMessage').innerHTML = `
             <p style="color: red;">All fields are required.</p>
@@ -20,7 +17,6 @@ document.getElementById('incidentForm').addEventListener('submit', async functio
     }
 
     try {
-        // Надсилаємо POST-запит до API
         const response = await fetch('/Incident', {
             method: 'POST',
             headers: {
@@ -29,11 +25,10 @@ document.getElementById('incidentForm').addEventListener('submit', async functio
             body: JSON.stringify(formData),
         });
 
-        // Обробка відповіді
         if (response.ok) {
             const data = await response.json();
             document.getElementById('responseMessage').innerHTML = `
-                <p style="color: green;">Incident created successfully! Incident ID: ${data.incidentId}</p>
+                <p style="color: green;">Incident created successfully!</p>
             `;
         } else if (response.status === 404) {
             document.getElementById('responseMessage').innerHTML = `
@@ -46,7 +41,6 @@ document.getElementById('incidentForm').addEventListener('submit', async functio
             `;
         }
     } catch (error) {
-        // Обробка помилок з боку клієнта
         document.getElementById('responseMessage').innerHTML = `
             <p style="color: red;">An error occurred: ${error.message}</p>
         `;

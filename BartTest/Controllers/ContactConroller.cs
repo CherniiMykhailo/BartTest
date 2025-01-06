@@ -19,7 +19,6 @@ namespace BartTest.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNewContact([FromBody] Contact contact)
         {
-
             var addedContact = await contactService.AddNewContactAsync(contact);
 
             return addedContact == null ? StatusCode(409, $"Contact already exists.") : Ok(addedContact);

@@ -22,6 +22,5 @@ namespace BartTest.Controllers
 
             return addedAccount == null ? NotFound() : Ok(addedAccount);
         }
-
     }
 }

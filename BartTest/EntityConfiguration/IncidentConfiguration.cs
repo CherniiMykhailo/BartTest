@@ -11,8 +11,7 @@ namespace BartTest.EntityConfiguration
             builder.ToTable("Incidents");
 
             builder.HasKey(i => i.Name); //primary key
-            builder.Property(i => i.Name).ValueGeneratedOnAdd();
-            //builder.Property(i => i.Name).HasDefaultValueSql("NEWID()"); // autogenerate by DB
+            builder.Property(i => i.Name).ValueGeneratedOnAdd(); // autogenerate
 
             builder.Property(incident => incident.Description).HasMaxLength(100);
         }

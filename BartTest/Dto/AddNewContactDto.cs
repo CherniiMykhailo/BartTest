@@ -1,6 +1,4 @@
-﻿using Microsoft.Identity.Client;
-
-namespace BartTest.Dto
+﻿namespace BartTest.Dto
 {
     public class AddNewContactDto
     {

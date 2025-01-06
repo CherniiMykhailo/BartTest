@@ -4,7 +4,6 @@ using BartTest.Dto;
 using BartTest.Entities;
 using BartTest.Repository.Infrastructure;
 using BartTest.Repository.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using IncidentEntity = BartTest.Entities.Incident;
 
 namespace BartTest.Repository.Implementation

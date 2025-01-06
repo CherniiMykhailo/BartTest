@@ -22,7 +22,5 @@ namespace BartTest.Controllers
 
             return addedIncident == null ? NotFound() : Ok(addedIncident);
         }
-
-
     }
 }
